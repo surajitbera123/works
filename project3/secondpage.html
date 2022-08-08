@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+
+        }
+        h3{
+            margin-top:-35px;
+            margin-left:-30px;
+        } 
+        .hr1{
+        margin-left:-35px;opacity:0.5;width: 121%;
+        margin-top: 20px;
+      
+        }
+        .cross{
+            height:16px; width:16px;
+        }
+    .bg-image{
+        background: url("photo.PNG");
+        height: 100vh;
+        width:100vw;
+        background-size: 100%;
+        filter: blur(2px);
+        filter:brightness(20%);
+        
+    }
+    
+    .content{
+        width:25%;
+        background-color: aliceblue;
+        padding:40px;
+        position:relative;
+        top: -500px;
+        left:490px;
+        border-radius: 8px;
+        padding-bottom: 70px;
+
+
+    }
+    #myhr{
+        margin-left:-30px ;
+        font-size: 17px;
+    }
+    #btn{
+        font-weight: bold;
+        background-color:royalblue;
+        border-radius: 5px;
+        width:30%;
+        padding:5px;
+        float: right;
+        color: azure;
+        margin-right:-12px;
+        margin-bottom: -20px;
+    }
+    @media(max-width:400px){
+        .bg-image{
+            background: url("font.PNG");
+            height: 100vh;
+            width:100vw;
+            background-size: 100%;
+            filter: blur(12px);
+            filter:brightness(30%);
+            background-attachment:scroll;
+            background-repeat: no-repeat;
+            margin:0 auto;
+            margin-right: 0px;
+            box-sizing: border-box;
+            
+        }
+        .content{
+          width:60%;
+          background-color: aliceblue;
+          position:relative;
+          top:-420px;
+          left:10px;
+          right:3px;
+          
+         
+        
+        }
+        .cross{
+            height:13px; width:13px;
+            position: relative;
+            top:5px;
+        }#btn{
+            position: relative;
+            right:50px;
+            width:50%;
+            padding-right:0px;
+            padding-left: 0px;
+
+        }#myhr{
+            width:90%;
+        } .hr1{
+            margin-left:-40px;opacity:0.5;width: 133%;
+            position: relative;
+            top:-4px
+            }
+    }
+    @media(min-width:400px) and (max-width:750px){
+        .bg-image{
+            background: url("font1.PNG");
+            height: 100vh;
+            width:100vw;
+            background-size: 100%;
+            filter: blur(12px);
+            filter:brightness(30%);
+            background-repeat: no-repeat;
+            margin:0 auto;
+            margin-right: 0px;
+            box-sizing: border-box;
+            
+        }.content{
+            width:53%;
+            background-color: aliceblue;
+            position:relative;
+            top:-430px;
+            left:9px;
+            margin: 0 auto;
+           
+          
+          }.hr1{
+            margin-left:-40px;opacity:0.5;width: 121%;
+            position: relative;
+            top:9px
+            } 
+            .cross{
+                height:16px; width:16px; position: relative; top:5px;
+            }
+
+        }
+        @media(min-width:751px){
+            .bg-image{
+                background-repeat: no-repeat;
+                box-sizing: border-box;
+                height: 100vh;
+                width:100vw;
+                background-size: 100%;
+                filter: blur(12px);
+                filter:brightness(30%);
+                margin:0 auto;
+                box-sizing: border-box;
+                
+            }
+            .cross{
+                height:16px; width:16px; position:relative;
+                top:-15px;
+            }
+            h3{
+                margin-top:-16px;
+                margin-left:-30px;
+            } 
+        }
+</style>
+</head>
+<body>
+<div class="bg-image"></div>
+<div class="content">
+<h3>Add new Task</h3>
+<a href="todomobile.html"><span style="float:right; margin-top:-20px; margin-right:-23px;">
+<img src="cross.png" class="cross" alt=""></a></span>
+
+<hr class="hr1"><br><br>
+<input type="text" name="mytext" id="myhr" value="Learn C++"><br><br>
+<div class="my"><input type="submit" value="+ Add Task" id="btn"></div>
+</div>
+</body>
+</html>
