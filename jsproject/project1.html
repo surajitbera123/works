@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+       
+        #myimg1{
+          height:100px;
+          position: relative;
+          left:80px;
+          top:4px;
+        }#pid1{
+            font-weight: normal;
+        }
+        .arrow{
+            border-radius: 100%;
+            height:40px;
+            position:relative;
+            right:-180px;
+            top:-64px;
+            z-index:-1;
+
+        }.arrow2{
+          position: relative;
+          top:-260px;
+          left:130px;
+          z-index: -1;
+        }
+        .back{
+            height:50px;
+            width:19%;
+            background-color: aliceblue;
+            box-shadow: 9px 9px 2px rgb(139, 133, 133);
+            float:right;
+            box-sizing: border-box;
+            position: relative;
+            top:80px;
+            right:27%;
+            border-radius: 10px;
+            opacity:0.7;
+        }
+        .time{
+            background-color: white;
+            height:50px;
+            width:29%;
+            float:right;
+            padding:20px;
+            border-radius: 10px;
+            position: relative;
+            top:32px;
+            right:30px;
+        }.second,.third,.fourth{
+            float:left;
+            display: inline;
+            margin:6px;
+            font-weight: bold;
+            font-size: 25px;
+            color:darkviolet;
+            background-color: bisque;
+            padding-left:10px;
+            padding-right: 10px;
+            position: relative;
+            bottom: 15px;
+            font-family:cursive;
+            border-radius: 5px;
+        }.first{
+            float:left;
+            display: inline;
+            margin:15px;
+            font-weight: bold;
+            font-size: 22px;
+            color:darkviolet;
+           
+            
+           
+        }.fifth{
+            float:right;
+            display: inline;
+            margin:8px;
+            font-weight: bold;
+            font-size: 25px;
+            color:darkviolet;
+            background-color: bisque;
+            padding-left:10px;
+            padding-right: 10px;
+            position: relative;
+            bottom: 165px;
+            right:-15px;
+            background-image: linear-gradient(to top, deeppink,indigo);
+            color: white;
+            padding-top:19px;
+            padding-bottom:12px;
+            font-family:arial;
+            border-radius: 5px;
+            
+            
+            
+        }.content{
+              background-color: aliceblue;
+              margin-left: 90px;
+              width:32%;
+              border-radius: 10px;
+              height:300px;
+              box-sizing: border-box;
+        }.content .firstline{
+
+        }.content .firstline ul{
+          position: relative;
+          left:-35px;
+        }.content .firstline ul li{
+            list-style-type: none;
+            display:inline-block;
+            margin:20px;
+        }.vl{
+            height:30px;
+            width:1px;
+            opacity:px;
+            background-color:gray;
+            position: relative;
+            left:40px;
+            top:-50px;
+
+        }
+        .vl1{
+            height:30px;
+            width:1px;
+            opacity:px;
+            background-color:gray;
+            position: relative;
+            left:40px;
+            top:-130px;
+
+        }
+        .vl2{
+            height:30px;
+            width:1px;
+            opacity:px;
+            background-color:gray;
+            position: relative;
+            left:40px;
+            top:-205px;
+
+        }
+        .content .secondline{
+
+        }.content .secondline ul{
+          position: relative;
+          left:-35px;
+          top:-76px;
+        }.content .secondline ul li{
+            list-style-type: none;
+            display:inline-block;
+            margin:20px;
+        }
+        .content .thirdline{
+
+        }.content .thirdline ul{
+          position: relative;
+          left:-35px;
+          top:-156px;
+        }.content .thirdline ul li{
+            list-style-type: none;
+            display:inline-block;
+            margin:20px;
+           
+        }
+        .content .fourthline{
+
+        }.content .fourthline ul{
+          position: relative;
+          left:-40px;
+          top:-242px;
+        }.content .fourthline ul li{
+            list-style-type: none;
+            display:inline-block;
+            margin:20px;
+
+           
+        }.healthy-breakfast{
+            
+            box-sizing: border-box;
+            background-color: white;
+            font-size: 24px;
+            width:44%;
+            margin:0 auto;
+            position: relative;
+            left:190px;
+            top:-260px;
+            padding:23px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family:elephant;
+            color:indigo;
+
+
+        }.good-morning{
+            background-color:blueviolet;
+            font-size: 23px;
+            font-family: elephant;
+            color:white;
+            padding:15px;
+            width:30%;
+            position: relative;
+            left:90px;
+            top:-60px;
+            border-radius: 10px;
+
+        }.arlam{
+            height:50px;
+            width:10%;
+            background-image: linear-gradient(to right, blue,magenta);
+            position: relative;
+            left:90px;
+            top:-40px;
+            border-radius: 5px;
+            
+        }
+        .arlam:hover{
+            height:50px;
+            width:10%;
+            background-image: linear-gradient(to right, magenta,blue);
+            position: relative;
+            left:90px;
+            top:-40px;
+            border-radius: 5px;
+            content:'Party Time';
+            
+        }#myspan1{
+            color:white;
+            font-size: 22px;
+            text-align: center;
+            position:relative;
+            top:15px;
+            left:30px;
+        }
+        .timings{
+          background-color: blueviolet;
+          width:20.5%;
+          padding:1px;
+          border-radius: 20px;
+          position:relative;
+          left:245px;
+          top:-100px;
+        
+        }.timings ul{
+
+        }.timings ul li{
+         list-style: none;
+         line-height: 1.5;
+         color: white;
+        }.image{
+          float:right;
+          position: relative;
+          top:-475px;
+          left:-180px;
+          
+        }.textbox{
+            width:16%;
+            position: relative;
+            top:-170px;
+            left:10px;
+            
+        }#pid1{
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }p{
+            font-weight: bold;
+        }.third{
+            position: relative;
+            top:-50px;
+            left:5px;
+        }
+        .fourth{
+            position: relative;
+            top:-85px;
+            left:5px;
+        }.timings ul{
+            position: relative;
+            left:-10px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body bgcolor="#3d087b">
+    <img src="./clock.png" alt="error" id="myimg1">
+    <div class="back"></div>
+    <div class="time">
+        <div class="first">TIME</div>
+        <div class="second">10 <br> hrs</div> <div style="font-size:30px; font-weight:bold; position:relative;top:10px;">:</div>
+        <div class="third">00 <br> mins</div> <div style="font-size:30px; font-weight:bold; position:relative;top:-25px;">:</div>
+        <div class="fourth">10 <br> secs</div>
+        <div class="fifth">AM</div>
+    </div>
+   
+    <div class="content">
+        <div class="firstline">
+            <ul>
+                <li><img src="sun.png" alt=""></li>
+                <li style="position:relative; top:-10px;"><p>Set wake up time</p></li>
+                <li style="position:relative; top:-10px;">
+                    <select name="abc" id="def">
+                        <option value="-1">Default:</option>
+                        <option value="1">5AM-6AM</option>
+                        <option value="1">6AM-7AM</option>
+                        <option value="1">7AM-8AM</option>
+                        <option value="1">8AM-9AM</option>
+                        <option value="1">9AM-10AM</option>
+                        <option value="1">10AM-11AM</option>
+                        <option value="1">11AM-12PM</option>
+                        <option value="1">12PM-1PM</option>
+                        <option value="1">1PM-2PM</option>
+                        <option value="1">2PM-3PM</option>
+                        <option value="1">3PM-4PM</option>
+                        <option value="1">4PM-5PM</option>
+                        <option value="1">5PM-6PM</option>
+                        <option value="1">6PM-7PM</option>
+                        <option value="1">7PM-8PM</option>
+                        <option value="1">8PM-9PM</option>
+                        <option value="1">9PM-10PM</option>
+                        <option value="1">10PM-11PM</option>
+                        <option value="1">11PM-12AM</option>
+                        <option value="1">12AM-1AM</option>
+                        <option value="1">1AM-2AM</option>
+                        <option value="1">2AM-3AM</option>
+                        <option value="1">3AM-4AM</option>
+                        <option value="1">4AM-5AM</option>
+
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="vl"></div>
+        <div class="secondline">
+            <ul>
+                <li><img src="lunch_time.svg" alt=""></li>
+                <li style="position:relative; top:-10px;"><p>Set Launch time</p></li>
+                <li style="position:relative; top:-10px;">
+                    <select name="ghi" id="jkl">
+                        <option value="-1">Default:</option>
+                        <option value="1">5AM-6AM</option>
+                        <option value="1">6AM-7AM</option>
+                        <option value="1">7AM-8AM</option>
+                        <option value="1">8AM-9AM</option>
+                        <option value="1">9AM-10AM</option>
+                        <option value="1">10AM-11AM</option>
+                        <option value="1">11AM-12PM</option>
+                        <option value="1">12PM-1PM</option>
+                        <option value="1">1PM-2PM</option>
+                        <option value="1">2PM-3PM</option>
+                        <option value="1">3PM-4PM</option>
+                        <option value="1">4PM-5PM</option>
+                        <option value="1">5PM-6PM</option>
+                        <option value="1">6PM-7PM</option>
+                        <option value="1">7PM-8PM</option>
+                        <option value="1">8PM-9PM</option>
+                        <option value="1">9PM-10PM</option>
+                        <option value="1">10PM-11PM</option>
+                        <option value="1">11PM-12AM</option>
+                        <option value="1">12AM-1AM</option>
+                        <option value="1">1AM-2AM</option>
+                        <option value="1">2AM-3AM</option>
+                        <option value="1">3AM-4AM</option>
+                        <option value="1">4AM-5AM</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="vl1"></div>
+        <div class="thirdline">
+            <ul>
+                <li><img src="nap_time.svg" alt=""></li>
+                <li style="position:relative; top:-10px"> <p>Set Nap time</p></li> 
+                <li style="position:relative; top:-10px; left:20px;">
+                    <select name="mno" id="pqr">
+                        <option value="-1">Default:</option>
+                        <option value="1">5AM-6AM</option>
+                        <option value="1">6AM-7AM</option>
+                        <option value="1">7AM-8AM</option>
+                        <option value="1">8AM-9AM</option>
+                        <option value="1">9AM-10AM</option>
+                        <option value="1">10AM-11AM</option>
+                        <option value="1">11AM-12PM</option>
+                        <option value="1">12PM-1PM</option>
+                        <option value="1">1PM-2PM</option>
+                        <option value="1">2PM-3PM</option>
+                        <option value="1">3PM-4PM</option>
+                        <option value="1">4PM-5PM</option>
+                        <option value="1">5PM-6PM</option>
+                        <option value="1">6PM-7PM</option>
+                        <option value="1">7PM-8PM</option>
+                        <option value="1">8PM-9PM</option>
+                        <option value="1">9PM-10PM</option>
+                        <option value="1">10PM-11PM</option>
+                        <option value="1">11PM-12AM</option>
+                        <option value="1">12AM-1AM</option>
+                        <option value="1">1AM-2AM</option>
+                        <option value="1">2AM-3AM</option>
+                        <option value="1">3AM-4AM</option>
+                        <option value="1">4AM-5AM</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="vl2"></div>
+        <div class="fourthline">
+            <ul>
+                <li><img src="https://cdn2.iconfinder.com/data/icons/user-interface-v2-simple/32/tr_add_rotate_dark_mode_wifi_connection_clean_booknark_news_messages_Artboard_4-06-512.png" alt="" height=40px></li>
+                <li style="position:relative; top:-10px;"><p>Set Night time &nbsp </p></li>
+                <li style="position:relative; top:-10px;">
+                    <select name="stu" id="vwx">
+                        <option value="-1">Default:</option>
+                        <option value="1">5AM-6AM</option>
+                        <option value="1">6AM-7AM</option>
+                        <option value="1">7AM-8AM</option>
+                        <option value="1">8AM-9AM</option>
+                        <option value="1">9AM-10AM</option>
+                        <option value="1">10AM-11AM</option>
+                        <option value="1">11AM-12PM</option>
+                        <option value="1">12PM-1PM</option>
+                        <option value="1">1PM-2PM</option>
+                        <option value="1">2PM-3PM</option>
+                        <option value="1">3PM-4PM</option>
+                        <option value="1">4PM-5PM</option>
+                        <option value="1">5PM-6PM</option>
+                        <option value="1">6PM-7PM</option>
+                        <option value="1">7PM-8PM</option>
+                        <option value="1">8PM-9PM</option>
+                        <option value="1">9PM-10PM</option>
+                        <option value="1">10PM-11PM</option>
+                        <option value="1">11PM-12AM</option>
+                        <option value="1">12AM-1AM</option>
+                        <option value="1">1AM-2AM</option>
+                        <option value="1">2AM-3AM</option>
+                        <option value="1">3AM-4AM</option>
+                        <option value="1">4AM-5AM</option>
+                    </select>
+                </li>
+            </ul>
+        </div>    
+    </div>
+    <div class="healthy-breakfast">
+        <span>GRAB &nbspSOME &nbspHEALTHY &nbspBREAKFAST!</span>
+    </div>
+    <div class="good-morning">
+        <span>GOOD MORNING!! WAKE UP!!</span>
+    </div>
+    <div class="arlam">
+        <span id="myspan1">Set Alarm</span>
+    </div>
+    <div class="timings"> 
+        <ul>
+            <li>Wake Up Time : 10AM - 11AM </li>
+            <li>Lunch Time : 12PM - 1PM</li>
+            <li>Nap Time : 4PM - 5PM</li>
+            <li>Night Time : 8PM-9AM</li>
+        </ul>
+    </div>
+<div class="image">
+    <img src="door.svg" alt="" width="590px";>
+</div>
+<div class="textbox">
+    <p id="pid1"> Time will be updated here after clicking on "Set Alarm"</p>
+</div>
+<div class="arrow2">
+    <img src="arrow2.png" alt="" height="40px">
+</div>
+</body>
+</html>
