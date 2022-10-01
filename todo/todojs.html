@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App JS</title>
+    <script src="https://kit.fontawesome.com/4231ff7c30.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alkalami&family=Aref+Ruqaa+Ink&family=Lobster&family=Oswald&display=swap" rel="stylesheet">
+   <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color:yellowgreen;
+        color:black;
+        margin: 3vh 10vw 0;
+    }
+    header {
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        padding-right: 110px;
+        padding-left:110px;
+    }
+    .hd1{
+        font-size: 3.5rem;
+    }
+    #hd1_1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .hd2{
+        font-size: 2.0rem;
+        text-decoration: none;
+        cursor: pointer;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .fa-circle-plus{
+        color:#0080ff;
+        font-size: 24px;
+    }
+    
+    /* Container */
+    #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #default-msg{
+        font-size: 43px;
+        position: absolute;
+        top: 220px;
+        left: 300px;
+        color:red;
+    }
+    .item {
+        background-color: wheat;
+        width: 200px;
+        min-height: 300px;
+        padding-bottom: 50px;
+        margin: 25px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        position: relative;
+        box-shadow: 5px 6px 3px gray;
+    }
+    .item:hover{
+       /* box-shadow: 2px 2px 16px black;*/
+        height:350px;
+        width:230px;
+        background-color: whitesmoke;
+    }
+    .c2 {
+        width: 100%;
+        padding: 15px 0 2px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        cursor: pointer;
+        color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       font-family :Arial, Helvetica, sans-serif;
+    }
+    .tasks{
+        color: black;
+        list-style: none;
+        text-align: center;
+        line-height: 2;
+        font-family: 'Oswald', sans-serif;
+    }
+    .close{
+        background-color:tomato;
+        padding: 7px;
+        border-radius: 20px;
+        margin: 5px;
+        cursor: pointer;
+        position: absolute;
+        right: 45px;
+        bottom: 9px;
+        
+    }
+    .addtask{
+        color: #0080ff;
+        font-size: 1.785rem;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        bottom: 13px;
+    }
+    .btn{
+        color: white;
+        background-color: red;
+        border: none;
+        padding: 5px;
+        border-radius: 50%;
+        margin: 5px;
+        font-size: 10px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    .marked {
+        color: red;
+        text-decoration: line-through;
+    }
+    .hide {
+        display: none;
+    }
+    
+    
+    /* Add item/ Add list popup*/
+    .new-div {
+        width: 360px;
+        height: 200px;
+        background-color: aqua;
+        border:3px solid whitesmoke;
+        border-radius: 16px;
+        font-weight: 700;
+        cursor: default;
+        position: absolute;
+        top: calc((100vh - 150px) / 2);
+        left: calc((100vw - 320px) / 2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .new-div p{
+        color:red;
+        font-size: 27px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .new-div input {
+        text-align: center;
+        width: 250px;
+        height: 30px;
+        border:1px solid gray;
+        border-radius:5px;
+        ;
+    }
+    .N1 button {
+        color: white;
+        background-color: tomato;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        margin: 8px 10px;
+        box-shadow: 1px 1px 4px black;
+    }
+    
+    
+    /* Item Expanded View */
+    .popup{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: yellowgreen;
+    }
+    .expPop{
+        background-color: black;
+    }
+    .item_expand_header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 20px 0 40px;
+    }
+    .expBack{
+        font-size: 1.5rem;
+        cursor: pointer;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow';
+        color:red;
+    }
+    .itemExpTitle{
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    .expAdd{
+        font-size: 1.5rem;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+        color:blue;
+    }
+    .content{
+        display: flex;
+        justify-content: center;
+    }
+    .item_Detail{
+        background-color: white;
+        width: 200px;
+        min-height: 260px;
+        padding-bottom: 50px;
+        border-radius: 10px;
+        position: relative;
+    }
+    
+   </style>  
+</head>
+  <body>
+    <header>
+        <div class="hd1">
+            <span id="hd1_1">Tasks</span>
+            <span style="color:#0080ff">List</span>
+        </div>
+        <div class="hd2" onclick="popup1()">                             
+            <i class="fa-solid fa-circle-plus"></i>
+            <span style="color:blueviolet; font-family:arial; font-weight:bold; font-size:24px;">Add New Task</span>
+        </div>
+    </header>
+    <p id="default-msg">No items available in the todo List</p>
+    <div id="container"></div>
+   
+ <script>
+ const taskList = []; let itemCount = 0; let Count = 1;
+
+function popup1() {
+    let body = document.getElementsByTagName("body")[0];
+    let main =document.createElement("main");
+    main.innerHTML = body.innerHTML;
+    main.style.filter = "blur(4px)";
+    body.innerHTML = ``;
+    body.append(main);
+    let div = document.createElement("div");
+    div.className = "new-div";
+    div.innerHTML =
+    `<p class="adl">Add New List</p>
+    <input type="text" placeholder="Add New List" id="list_title" autofocus>
+    <div class="N1">
+        <button onclick="addList()">Add</button>
+        <button onclick="goBack()">Close</button>
+    </div>`;
+    body.append(div);
+};
+
+let addList = () => {
+    let cardHeading = document.getElementById("list_title").value;
+    const Obj = {
+      id: Date.now(),
+      taskname: cardHeading
+    };
+    taskList.push(Obj);
+    console.log(taskList);
+    document.getElementById("default-msg").style.visibility = "hidden";
+    let container = document.getElementById("container");
+    container.innerHTML += `<div id= ${itemCount} class="item">
+            <span class="c2" onclick="expandItem(this)">${cardHeading}</span>
+            <hr>
+            <ul class="tasks" id="items-list-${itemCount}"></ul>
+            <i class="fa-solid fa-trash-can close" onclick="delList(this)"></i>
+            <i class="fa-solid fa-circle-plus addtask" id="add-btn-${itemCount++}" onclick="popup2(); getListID(event)"></i>
+        </div>`;
+    let body = document.getElementsByTagName("body")[0];
+    let main =document.getElementsByTagName("main")[0];
+    body.innerHTML = main.innerHTML;
+}
+
+function popup2() {
+    let body = document.getElementsByTagName("body")[0];
+    let main =document.createElement("main");
+    main.innerHTML = body.innerHTML;
+    main.style.filter = "blur(4px)";
+    body.innerHTML = ``;
+    body.append(main);
+    let div = document.createElement("div");
+    div.className = "new-div";
+    div.innerHTML =
+    `<p class="adl">Add New Item</p>
+    <input type="text" placeholder="Add New Item" id="item_title" autofocus>
+    <div class="N1">
+        <button onclick="addItem(this)">Add</button>
+        <button onclick="goBack()">Close</button>
+    </div>`;
+    body.append(div);
+};
+
+let listID = "";
+function getListID(tasks) {
+    listID =tasks.target.previousSibling.previousSibling.previousSibling.previousSibling.id;
+}
+
+let addItem = () => {
+    let item_title = document.getElementById("item_title").value;
+    let li = document.createElement("li");
+    document.getElementById(listID).appendChild(li);
+    li.id = `item-${Count++}`;
+    li.innerHTML = `<span>${item_title}</span>
+    <button class="btn" onclick="strike(this)">X</button>`;
+    let body = document.getElementsByTagName("body")[0];
+    let main =document.getElementsByTagName("main")[0];
+    body.innerHTML = main.innerHTML;
+  };
+
+let strike = (btn) => {
+    btn.parentElement.classList.add("marked");
+    btn.classList.add("hide");
+};
+
+let delList = (trash_can) => {
+    trash_can.parentElement.remove();
+    taskList.splice(trash_can.parentElement.id, 1);
+    if (taskList.length === 0) {
+        document.getElementById("default-msg").style.visibility = "visible";
+        document.getElementById("default-msg").style.opacity = 0.7;
+    };
+};
+
+function goBack(){
+    let body = document.getElementsByTagName("body")[0]
+    let main =document.getElementsByTagName("main")[0]
+    body.innerHTML = main.innerHTML
+}
+
+let expandItem = (card) => {
+    let body = document.getElementsByTagName("body")[0]
+    let hold =document.createElement("section")
+    hold.innerHTML = body.innerHTML
+    body.innerHTML = ``
+    body.append(hold)
+    let div = document.createElement("div")
+    div.className = "popup"
+    div.innerHTML = 
+    `<header class="item_expand_header">
+      <div class="expBack" onclick="expClose()">
+        <i class="fa-solid fa-circle-chevron-left"></i>
+        <span>Back</span>
+      </div>
+      <span id="itemExpTitleID" class="itemExpTitle">${card.innerText}</span>
+      <div class="expAdd" onclick="popup1()">
+        <i class="fa-solid fa-circle-plus"></i>
+        <span>Add</span>
+      </div>
+    </header>
+    <div class="content">
+        <div id="itemDetail" class="item_Detail">
+            ${card.parentElement.innerHTML}
+        </div>
+    </div>`
+  body.append(div)
+};
+
+function expClose(){
+    let body = document.getElementsByTagName("body")[0]
+    let hold =document.getElementsByTagName("section")[0]
+    body.innerHTML = hold.innerHTML
+}
+
+    </script>
+  </body>
+</html>
