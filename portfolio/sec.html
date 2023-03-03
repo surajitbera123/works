@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=Number(prompt("enter 1st number"));
+        var b=Number(prompt("enter 2nd number"));
+        var c=Number(prompt("enter 3rd number"));
+
+        console.log(`${a} ${b} ${c}`);
+//second largest number finding
+
+      if(a>b && a>c){
+        if(b>c)
+        big=b;
+        else
+        big=c;
+      }
+      else if(b>a && b>c){
+        if(a>c)
+        big=a;
+        else
+        big=c;
+      }
+      else{
+        if(a>b)
+        big=a;
+        else
+        big=b
+      }
+      console.log("the second largest number is "+big);
+
+    </script>
+</body>
+</html>
